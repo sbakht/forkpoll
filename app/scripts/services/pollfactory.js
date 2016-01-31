@@ -13,7 +13,7 @@ angular.module('strawpollApp')
     var polls = [];
     
     var addPoll = function(poll) {
-        polls.push[poll];
+        polls.push(poll);
     }
 
     var removePoll = function(poll) {
@@ -24,6 +24,8 @@ angular.module('strawpollApp')
     }
 
     return {
-      polls: polls
+      polls: polls,
+      addPoll: addPoll,
+      removePoll: removePoll
     };
   });
