@@ -2,9 +2,21 @@
 .selected {
     color:yellow;
 }
+
 </style>
-<div style="color:white" ng-repeat="option in poll.options">
-    <p><span ng-click="selectOption(option)" ng-class="{selected: option.selected}">Click</span> {{option.text}}</p> 
+
+<div class="content">
+    <div class="pollHeader">
+        <p class="title">{{poll.title}}</p>
+        <p class="tip">(Pick one)</p>
+    </div>
+    <div class="pollBody">
+        <div ng-repeat="option in poll.options">
+            <span class="checkbox" ng-click="selectOption(option)" ng-class="{selected: option.selected}"></span> <span>{{option.text}}</span> 
+        </div>
+    </div>
+    <div class="pollFooter">
+        <a class="btn btn-primary submit" ng-click="submitVote()">Vote</a>
+        <a class="btn btn-primary results" ng-href="/#/{{id}}/r">Results</a>
+    </div>
 </div>
-<button ng-click="submitVote()">Vote</button>
-<a class="button" ng-href="/#/{{id}}/r">Results</a>

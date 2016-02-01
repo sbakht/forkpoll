@@ -13,6 +13,7 @@ angular.module('strawpollApp')
     var polls = [
         {
             id: 'abc123', 
+            title: "Which option is your favorite?",
             options: [
                 {text:"option 1", votes: 0}, 
                 {text:"option 2", votes: 3}, 
