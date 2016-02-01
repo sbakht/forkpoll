@@ -1,1 +1,10 @@
-<p>This is the vote view.</p>
+<style>
+.selected {
+    color:yellow;
+}
+</style>
+<div style="color:white" ng-repeat="option in poll.options">
+    <p><span ng-click="select(option)" ng-class="{selected: option.selected}">Click</span> {{option.text}}</p> 
+</div>
+<button ng-click="submitVote()">Vote</button>
+<button ng-href="/#/{{id}}/r">Results</button>

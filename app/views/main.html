@@ -1,5 +1,5 @@
 <div class="row marketing">
-    <div ng-repeat="input in inputs track by $index">
+    <div class="pollInput" ng-repeat="input in inputs track by $index">
         <input poll-inputs type="text" ng-model="input.text" ng-class="{'last': $last}" />
     </div>
     <input type="button" ng-click="createPoll()" value="Create Poll"/> 

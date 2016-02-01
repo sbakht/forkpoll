@@ -2,16 +2,20 @@
 
 /**
  * @ngdoc function
- * @name strawpollApp.controller:ResultsctrlCtrl
+ * @name strawpollApp.controller:ResultsCtrl
  * @description
- * # ResultsctrlCtrl
+ * # ResultsCtrl
  * Controller of the strawpollApp
  */
 angular.module('strawpollApp')
-  .controller('ResultsctrlCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ResultsCtrl', function ($scope, $routeParams, PollFactory) {
+      $scope.poll = {};
+      var id = $routeParams.id;
+      var polls = PollFactory.polls;
+      for(var i = 0; i < polls.length; i++) {
+          if(polls[i].id == id) {
+              $scope.poll = polls[i];
+              break;
+          }
+      }
   });

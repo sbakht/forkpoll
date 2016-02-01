@@ -81,3 +81,28 @@ body {
     border-bottom: 0;
   }
 }
+
+
+
+body {
+    background-color:#323232;
+}
+
+header {
+    text-align:center;
+}
+
+h1 {
+    color: #C83232;
+    font-family: 'Sigmar One', sans-serif;
+    font-size:59px;
+}
+
+div.marketing {
+    background: url(http://static.strawpoll.me/images/e81fca41.paper-background.png);
+}
+
+.pollInput {
+    background: url(http://static.strawpoll.me/images/0610b0fc.paper-line.png);
+}
+

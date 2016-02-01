@@ -10,7 +10,16 @@
 angular.module('strawpollApp')
   .factory('PollFactory', function () {
 
-    var polls = [];
+    var polls = [
+        {
+            id: 'abc123', 
+            options: [
+                {text:"option 1", votes: 0}, 
+                {text:"option 2", votes: 3}, 
+                {text:"option 3", votes: 2}
+            ]
+        }
+    ];
     
     var addPoll = function(poll) {
         polls.push(poll);
