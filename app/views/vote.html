@@ -4,7 +4,7 @@
 }
 </style>
 <div style="color:white" ng-repeat="option in poll.options">
-    <p><span ng-click="select(option)" ng-class="{selected: option.selected}">Click</span> {{option.text}}</p> 
+    <p><span ng-click="selectOption(option)" ng-class="{selected: option.selected}">Click</span> {{option.text}}</p> 
 </div>
 <button ng-click="submitVote()">Vote</button>
-<button ng-href="/#/{{id}}/r">Results</button>
+<a class="button" ng-href="/#/{{id}}/r">Results</a>

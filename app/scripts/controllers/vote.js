@@ -20,21 +20,37 @@ angular.module('strawpollApp')
       }
 
       $scope.submitVote = function() {
+          if(isOptionSelected()) {
+              incrementVote();
+              $location.path("/" + $scope.id + "/r"); 
+          }
+      }
+
+      function isOptionSelected() {
+          var options = $scope.poll.options;
+          for(var i = 0; i < options.length; i++) {
+              if(options[i].selected) {
+                  return true;
+              }
+          }
+          return false;
+      }
+
+      function incrementVote() {
           var options = $scope.poll.options;
           for(var i = 0; i < options.length; i++) {
               if(options[i].selected) {
                   options[i].votes++;
               }
           }
-          $location.path("/" + $scope.id + "/r"); 
       }
 
-      $scope.select = function(option) {
-          deselectAll($scope.poll.options);
+      $scope.selectOption = function(option) {
+          deselectAllOptions($scope.poll.options);
           option.selected = true;
       }
 
-      function deselectAll(options) {
+      function deselectAllOptions(options) {
           for(var i = 0; i < options.length; i++) {
               options[i].selected = false;
           }
