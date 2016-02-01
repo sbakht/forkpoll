@@ -1,6 +1,13 @@
-<div class="row marketing">
-    <div class="pollInput" ng-repeat="input in inputs track by $index">
-        <input poll-inputs type="text" ng-model="input.text" ng-class="{'last': $last}" />
+<div class="content createPoll">
+    <div class="pollHeader">
+        <textarea placeholder="Type your question here"></textarea>
     </div>
-    <input type="button" ng-click="createPoll()" value="Create Poll"/> 
+    <div class="pollBody">
+        <div class="pollInput" ng-repeat="input in inputs track by $index">
+            <span class="number" ng-class="{ doubleDigit: $index > 8}">{{$index + 1}}</span><input poll-inputs type="text" ng-model="input.text" ng-class="{'last': $last}" placeholder="Enter poll option..." />
+        </div>
+    </div>
+    <div class="pollFooter">
+        <a class="btn btn-primary submit" ng-click="createPoll()">Create Poll</a>
+    </div>
 </div>

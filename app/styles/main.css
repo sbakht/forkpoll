@@ -98,7 +98,7 @@ h1 {
     font-size:59px;
 }
 
-div.marketing, .content {
+.content {
     background: url(http://static.strawpoll.me/images/e81fca41.paper-background.png);
 }
 
@@ -119,6 +119,12 @@ div.marketing, .content {
 .pollBody {
     background: url(http://static.strawpoll.me/images/0610b0fc.paper-line.png);
     font-size:21px;
+    line-height:1.8em;
+}
+
+.pollBody .number {
+    margin-left:42px;
+    margin-right:30px;
 }
 
 .pollFooter {
@@ -160,5 +166,36 @@ div.marketing, .content {
     border-color: #444;
 }
 
+.pollInput {
+
+}
+
+.pollInput input {
+
+}
+
+.createPoll .pollBody {
+    line-height:1.9em;
+}
+
+.createPoll .pollBody input {
+    height: 35px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    overflow: hidden;
+}
+
+.createPoll .pollBody .number.doubleDigit {
+    margin-left:31px;
+}
+
+.pollHeader textarea {
+    margin-left: 80px;
+    width: 620px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
 
 
