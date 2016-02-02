@@ -18,4 +18,10 @@ angular.module('strawpollApp')
               break;
           }
       }
+
+      var options = $scope.poll.options;
+      $scope.totalVotes = 0;
+      for(var i = 0; i < options.length; i++) {
+           $scope.totalVotes += options[i].votes; 
+      } 
   });

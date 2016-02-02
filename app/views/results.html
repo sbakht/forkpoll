@@ -1,3 +1,16 @@
-<div style="color:white" ng-repeat="option in poll.options">
-    <p>{{option.text}} {{option.votes}}</p> 
+<div class="pollResults content">
+    <div class="pollHeader">
+        <p class="title">{{poll.title}}</p>
+    </div>
+    <div class="pollBody">
+        <div ng-repeat="option in poll.options">
+            <span class="number" ng-class="{ doubleDigit: $index > 8}">{{$index + 1}}</span><span>{{option.text}}</span> 
+            <div class="optionVoteCount">
+                <div class="optionMeter"><div style="width: {{option.votes / totalVotes * 100}}%"></div></div>
+                <span>{{option.votes}} votes ({{option.votes / totalVotes * 100 | number:0}}%)</span>
+            </div>
+        </div>
+    </div>
+    <div class="pollFooter">
+    </div>
 </div>

@@ -174,7 +174,7 @@ h1 {
 
 }
 
-.createPoll .pollBody {
+.createPoll .pollBody{
     line-height:1.9em;
 }
 
@@ -186,7 +186,7 @@ h1 {
     overflow: hidden;
 }
 
-.createPoll .pollBody .number.doubleDigit {
+.pollBody .number.doubleDigit {
     margin-left:31px;
 }
 
@@ -196,6 +196,31 @@ h1 {
     background: transparent;
     border: none;
     outline: none;
+}
+
+.pollBody .optionVoteCount {
+    font-size:16px;
+    margin-left:140px;
+}
+
+.pollBody .optionVoteCount .optionMeter {
+    width: 150px;
+    height: 18px;
+    background: #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.pollBody .optionVoteCount .optionMeter > div {
+    background-image: url(http://static.strawpoll.me/images/3dcf25ca.sprite.png);
+    background-position:0 0;
+    height: 100%;
+}
+
+.pollResults .pollBody {
+    line-height: 1.95em;
 }
 
 
