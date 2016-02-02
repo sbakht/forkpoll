@@ -7,7 +7,10 @@
             <span class="number" ng-class="{ doubleDigit: $index > 8}">{{$index + 1}}</span><span>{{option.text}}</span> 
             <div class="optionVoteCount">
                 <div class="optionMeter"><div style="width: {{option.votes / totalVotes * 100}}%"></div></div>
-                <span>{{option.votes}} votes ({{option.votes / totalVotes * 100 | number:0}}%)</span>
+                <span>
+                    <ng-pluralize count="option.votes" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize> 
+                    ({{option.votes / totalVotes * 100 | number:0}}%)
+                </span>
             </div>
         </div>
     </div>
