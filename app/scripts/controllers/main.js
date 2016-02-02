@@ -13,7 +13,7 @@ angular.module('strawpollApp')
       $scope.inputs = [{},{},{}];
 
       $scope.createPoll = function() {
-         var poll = { id: makeId(), options: [] };
+         var poll = { id: makeId(), options: [], title: $scope.title };
          for(var i = 0; i < $scope.inputs.length; i++) {
             if($scope.inputs[i].text != '') {
                 poll.options.push({ text: $scope.inputs[i].text, votes: 0});
