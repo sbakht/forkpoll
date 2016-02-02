@@ -223,4 +223,14 @@ h1 {
     line-height: 1.95em;
 }
 
+.pollResults .pollHeader {
+    padding-bottom: 50px;
+}
 
+.pollResults .pollFooter {
+    padding-top: 15px;
+}
+
+.pollResults .totalVotes {
+    font-size:40px;
+}
