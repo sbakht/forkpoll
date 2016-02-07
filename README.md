@@ -1,12 +1,10 @@
 # strawpoll
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+This is my attempt at a clone of www.strawpoll.me
 
-## Build & development
+It currently isn't a 1:1 recreation since the pie chart at the missing and you can't restrict the number of times a user can vote by browser or ip address.
 
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+TODO
+* Results pie chart
+* Restrict voting by browser
+* Restrict voting by ip address
