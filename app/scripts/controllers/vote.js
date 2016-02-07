@@ -12,7 +12,7 @@ angular.module('strawpollApp')
       $scope.poll = {};
       $scope.id = $routeParams.id;
       var polls = PollFactory.getPolls();
-      
+
       polls.$loaded().then(function(result) {
         $scope.poll = result.$getRecord($scope.id);
       }, function(error) {
@@ -24,7 +24,7 @@ angular.module('strawpollApp')
               incrementVote();
               $location.path("/" + $scope.id + "/r"); 
           }
-      }
+      };
 
       function isOptionSelected() {
           var options = $scope.poll.options;
@@ -50,7 +50,7 @@ angular.module('strawpollApp')
       $scope.selectOption = function(option) {
           deselectAllOptions($scope.poll.options);
           option.selected = true;
-      }
+      };
 
       function deselectAllOptions(options) {
           for(var i = 0; i < options.length; i++) {

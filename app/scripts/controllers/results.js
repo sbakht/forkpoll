@@ -11,11 +11,11 @@ angular.module('strawpollApp')
   .controller('ResultsCtrl', function ($scope, $routeParams, PollFactory) {
       var id = $routeParams.id;
       var polls = PollFactory.getPolls();
-      
+
       polls.$loaded().then(function(result) {
         $scope.poll = result.$getRecord(id);
         calculateTotalVotes();
-        polls.$watch(calculateTotalVotes)
+        polls.$watch(calculateTotalVotes);
       }, function(error) {
         console.log("error: " + error);
       });

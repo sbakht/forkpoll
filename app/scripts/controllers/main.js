@@ -15,7 +15,7 @@ angular.module('strawpollApp')
       $scope.createPoll = function() {
          var poll = {title: $scope.title, options: [] };
          for(var i = 0; i < $scope.inputs.length; i++) {
-            if($scope.inputs[i].text && $scope.inputs[i].text != '') {
+            if($scope.inputs[i].text && $scope.inputs[i].text !== '') {
                 poll.options.push({ text: $scope.inputs[i].text, votes: 0});
             }
          }
@@ -24,6 +24,6 @@ angular.module('strawpollApp')
            var id = ref.key();
            $location.path("/" + id);
          });
-      }
+      };
 
   });

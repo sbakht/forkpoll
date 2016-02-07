@@ -15,18 +15,18 @@ angular.module('strawpollApp')
     
     var getPolls = function() {
         return $firebaseArray(ref);
-    }
+    };
 
     var addPoll = function(poll) {
         return polls.$add(poll);
-    }
+    };
 
     var removePoll = function(poll) {
         var index = polls.indexOf(poll);
-        if(index != -1) {
+        if(index !== -1) {
             polls.splice(index, 1);
         }
-    }
+    };
 
     return {
       polls: polls,
