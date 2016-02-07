@@ -8,22 +8,17 @@
  * Factory in the strawpollApp.
  */
 angular.module('strawpollApp')
-  .factory('PollFactory', function () {
+  .factory('PollFactory', function ($firebaseArray) {
 
-    var polls = [
-        {
-            id: 'abc123', 
-            title: "Which option is your favorite?",
-            options: [
-                {text:"option 1", votes: 0}, 
-                {text:"option 2", votes: 3}, 
-                {text:"option 3", votes: 2}
-            ]
-        }
-    ];
+    var ref = new Firebase("https://forkpoll.firebaseio.com");
+    var polls = $firebaseArray(ref);
     
+    var getPolls = function() {
+        return $firebaseArray(ref);
+    }
+
     var addPoll = function(poll) {
-        polls.push(poll);
+        return polls.$add(poll);
     }
 
     var removePoll = function(poll) {
@@ -35,6 +30,7 @@ angular.module('strawpollApp')
 
     return {
       polls: polls,
+      getPolls: getPolls,
       addPoll: addPoll,
       removePoll: removePoll
     };

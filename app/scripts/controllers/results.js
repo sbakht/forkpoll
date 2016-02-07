@@ -9,19 +9,23 @@
  */
 angular.module('strawpollApp')
   .controller('ResultsCtrl', function ($scope, $routeParams, PollFactory) {
-      $scope.poll = {};
       var id = $routeParams.id;
-      var polls = PollFactory.polls;
-      for(var i = 0; i < polls.length; i++) {
-          if(polls[i].id == id) {
-              $scope.poll = polls[i];
-              break;
-          }
-      }
+      var polls = PollFactory.getPolls();
+      
+      polls.$loaded().then(function(result) {
+        $scope.poll = result.$getRecord(id);
+        calculateTotalVotes();
+        polls.$watch(calculateTotalVotes)
+      }, function(error) {
+        console.log("error: " + error);
+      });
 
-      var options = $scope.poll.options;
-      $scope.totalVotes = 0;
-      for(var i = 0; i < options.length; i++) {
-           $scope.totalVotes += options[i].votes; 
-      } 
+
+      function calculateTotalVotes() {
+        var options = $scope.poll.options;
+        $scope.totalVotes = 0;
+        for(var i = 0; i < options.length; i++) {
+             $scope.totalVotes += options[i].votes; 
+        } 
+      }
   });

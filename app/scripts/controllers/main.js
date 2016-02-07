@@ -13,26 +13,17 @@ angular.module('strawpollApp')
       $scope.inputs = [{},{},{}];
 
       $scope.createPoll = function() {
-         var poll = { id: makeId(), options: [], title: $scope.title };
+         var poll = {title: $scope.title, options: [] };
          for(var i = 0; i < $scope.inputs.length; i++) {
-            if($scope.inputs[i].text != '') {
+            if($scope.inputs[i].text && $scope.inputs[i].text != '') {
                 poll.options.push({ text: $scope.inputs[i].text, votes: 0});
             }
          }
-         PollFactory.addPoll(poll);
-         $location.path("/" + poll.id);
+
+         PollFactory.addPoll(poll).then(function(ref) {
+           var id = ref.key();
+           $location.path("/" + id);
+         });
       }
-
-      function makeId()
-      {
-          var text = "";
-          var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
-
-          for( var i=0; i < 5; i++ )
-          text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-          return text;
-      }
-
 
   });

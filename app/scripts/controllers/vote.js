@@ -11,13 +11,13 @@ angular.module('strawpollApp')
   .controller('VoteCtrl', function ($scope, $routeParams, $location, PollFactory) {
       $scope.poll = {};
       $scope.id = $routeParams.id;
-      var polls = PollFactory.polls;
-      for(var i = 0; i < polls.length; i++) {
-          if(polls[i].id == $scope.id) {
-              $scope.poll = polls[i];
-              break;
-          }
-      }
+      var polls = PollFactory.getPolls();
+      
+      polls.$loaded().then(function(result) {
+        $scope.poll = result.$getRecord($scope.id);
+      }, function(error) {
+        console.log("error: " + error);
+      });
 
       $scope.submitVote = function() {
           if(isOptionSelected()) {
@@ -41,8 +41,10 @@ angular.module('strawpollApp')
           for(var i = 0; i < options.length; i++) {
               if(options[i].selected) {
                   options[i].votes++;
+                  options[i].selected = false;
               }
           }
+          polls.$save($scope.poll);
       }
 
       $scope.selectOption = function(option) {
